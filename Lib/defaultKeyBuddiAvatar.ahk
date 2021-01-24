@@ -1,0 +1,1 @@
+FileInstall, resources/robotic-48.ico, robotic-48.ico, 1
