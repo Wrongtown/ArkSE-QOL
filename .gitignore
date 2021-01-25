@@ -1,0 +1,13 @@
+#Sublime Text artefacts
+*.sublime-project
+*.sublime-workspace
+
+#Visual Studio Code artefacts
+*.code-workspace
+
+#Artefacts from testing compiled .exe
+KeyBuddi-Ark/KB.txt
+KeyBuddi-Ark/pr-splash.jpg
+KeyBuddi-Ark/pr-togg.jpg
+KeyBuddi-Ark/robotic-48.ico
+
