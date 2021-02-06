@@ -28,8 +28,8 @@ version := "0.09", company := "Wrongtown"    ; Keep these lines together
  ; End CompilerDirectives for this version
 #Include Lib\DefaultCompilerDirectives.ahk
 
-IniRead, ReportLogs, %A_ScriptDir%KB.txt, Rep, Enable, Could Not Find Valid Enabler Flag - please report this error.
-IniRead, LogVal, %A_ScriptDir%KB.txt, Log, Val, No LogVal found in KB.txt
+IniRead, ReportLogs, %A_ScriptDir%\KB.txt, Rep, Enable, Could Not Find Valid Enabler Flag - please report this error.
+IniRead, LogVal, %A_ScriptDir%\KB.txt, Log, Val, No LogVal found in KB.txt
 
 #Include Lib\MovemberAvatar.ahk
 
@@ -208,8 +208,8 @@ Return
 ; **** HotKeys - Customize below for your preferences ****
 
 
-#IfWinActive ahk_exe ShooterGame.exe
-; #IfWinActive *Untitled - Notepad ; Debug only
+; #IfWinActive ahk_exe ShooterGame.exe
+#IfWinActive Untitled - Notepad ; Debug only
 ^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down app
 MButton:: Gosub, WCC_Active ; Middle Mouse Button will hold down W key to move foward
 F2:: Gosub, Hold_LeftClick_Active ; F2 holds down left mouse button
@@ -237,7 +237,7 @@ SetTimer, SplashOff, 300
 Return
 
 InputLogVal:
-send {Text} %LogVal%
+send {Text}%LogVal%
 Return
 
 SplashOff() {
