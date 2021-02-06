@@ -48,7 +48,7 @@ if !FileExist(A_ScriptDir . "pr-togg.jpg")
 
 
 
-SplashImage, pr-splash.jpg, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script at any time`npress Ctrl+F10`n
+SplashImage, pr-splash.jpg, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script`nfrom Ark:SE press`nCtrl+F10`n
 SetTimer, SplashOff, 3000
 
 Contact_Email = troy.hall@rac.com.au
