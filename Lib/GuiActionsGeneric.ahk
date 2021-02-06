@@ -14,5 +14,5 @@ Return
 
 ;When ButtonHideAbout_Pressed is triggered by the user, destroy the About window
 ButtonHideAbout_Pressed:
-WinHide, About KeyBuddi, ,MTmacro
+WinHide, About KeyBuddy, ,MTmacro
 Return 

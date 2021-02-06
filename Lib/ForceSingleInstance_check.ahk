@@ -1,5 +1,5 @@
 ﻿If ForceSingleInstance() {
-LogRun("ForceSingleInstance simulating user shutdown of %KeyBuddi_Subtype% %KeyBuddi_Version% for %A_UserName% (see next line in log for " . A_UserName . ").")
+LogRun("ForceSingleInstance simulating user shutdown of %KeyBuddy_Subtype% %KeyBuddy_Version% for %A_UserName% (see next line in log for " . A_UserName . ").")
             
   MsgBox, 4,,
              ( LTRIM ; Remove leading spaces and end all but the last line with `n
@@ -8,7 +8,7 @@ LogRun("ForceSingleInstance simulating user shutdown of %KeyBuddi_Subtype% %KeyB
              )
   IfMsgBox Yes
             {
-             LogRun("ForceSingleInstance shutting down this instance of " . KeyBuddi_Subtype . KeyBuddi_Version . " after " . A_UserName . " accepted prompt.")
+             LogRun("ForceSingleInstance shutting down this instance of " . KeyBuddy_Subtype . KeyBuddy_Version . " after " . A_UserName . " accepted prompt.")
               
             Gosub, ButtonDie_Pressed
             }

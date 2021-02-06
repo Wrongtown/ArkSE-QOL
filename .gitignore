@@ -6,8 +6,8 @@
 *.code-workspace
 
 #Artefacts from testing compiled .exe
-KeyBuddi-Ark/KB.txt
-KeyBuddi-Ark/pr-splash.jpg
-KeyBuddi-Ark/pr-togg.jpg
-KeyBuddi-Ark/robotic-48.ico
+KeyBuddy-Ark/KB.txt
+KeyBuddy-Ark/pr-splash.jpg
+KeyBuddy-Ark/pr-togg.jpg
+KeyBuddy-Ark/robotic-48.ico
 

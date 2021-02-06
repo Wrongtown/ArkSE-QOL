@@ -1,4 +1,4 @@
-﻿Gui New, +0x400000, %KeyBuddi_Subtype% v%KeyBuddi_Version%  ; Create a new GUI
+﻿Gui New, +0x400000, %KeyBuddy_Subtype% v%KeyBuddy_Version%  ; Create a new GUI
 Gui, Margin, 5, 10
 Gui, Color, 0x244560
 Gui +LastFound
@@ -23,7 +23,7 @@ ButtonAbout_Pressed_TT := ""
 gui, font, s8 q5, Verdana
 Gui, Add, Button, xp+60 yp+0 w80 h40 gButtonFeedback_Pressed vButtonFeedback_Pressed, &Report issue via email
 ButtonFeedback_Pressed_TT := ""
-; Button to invoke ButtonDie_Pressed, halting the KeyBuddi and Closing the UI. 
+; Button to invoke ButtonDie_Pressed, halting the KeyBuddy and Closing the UI. 
 gui, font, s8 q5, Verdana
 Gui, Add, Button, xp+230 yp+20 w40 h20 gButtonDie_Pressed vButtonDie_Pressed, Exit 
 ButtonDie_Pressed_TT := ""
