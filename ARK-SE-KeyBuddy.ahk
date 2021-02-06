@@ -171,7 +171,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-Shut down the script without having to find the window and select Exit.`n
+Shut down the script from the Ark:SE window, avoiding the need to find the window and select Exit.`n
 `n
 )
 
