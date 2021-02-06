@@ -12,7 +12,7 @@ LogAppVer = %KeyBuddi_Version%
 App1Name:= "Ark: Survival Evolved"
 RunLogFileAndPath:= A_ScriptDir . "ARKRun.txt"
 InvokeLogFileAndPath:= A_ScriptDir . "ARKInvoke.txt"
-; latestversionexplorerpath:= "\\rac.com.au\files\RACI\KeyBuddi\KeyBuddi-ARK\"
+; latestversionexplorerpath:= A_ScriptDir . "KeyBuddi\KeyBuddi-ARK\"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
