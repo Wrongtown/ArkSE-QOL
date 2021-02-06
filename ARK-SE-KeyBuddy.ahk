@@ -146,6 +146,23 @@ Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherit
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, xs
+Gui, Add, Text, xs+20 r1 , F10
+
+Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
+Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
+Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Text, xs+20 , 
+(
+If you add a [Log]Val string to KB.txt I will input it`n
+`n
+)
+
+Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
+Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
+Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
+Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
+; Gui, Add, Text, xs
 Gui, Add, Text, xs+20 r1 , Ctrl+F10
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
@@ -188,7 +205,7 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+330 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Button, xp+336 yp+430 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
 Gui, Add, Text, xp-530 yp+20 w10, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
@@ -196,7 +213,6 @@ Gui, Show
 WinSet, Transparent , 235, About KeyBuddy, , , 
 WinSet, Enable ,, About KeyBuddy, , , 
 OnMessage( 0x200, "WM_MOUSEMOVE" ) 
-return
 
 WM_MOUSEMOVE( wparam, lparam, msg, hwnd )
 {
@@ -208,8 +224,8 @@ Return
 ; **** HotKeys - Customize below for your preferences ****
 
 
-; #IfWinActive ahk_exe ShooterGame.exe
-#IfWinActive Untitled - Notepad ; Debug only
+#IfWinActive ahk_exe ShooterGame.exe
+; #IfWinActive Untitled - Notepad ; Debug only
 ^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down app
 MButton:: Gosub, WCC_Active ; Middle Mouse Button will hold down W key to move foward
 F2:: Gosub, Hold_LeftClick_Active ; F2 holds down left mouse button

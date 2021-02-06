@@ -24,4 +24,3 @@ WM_MOUSEOVER()
     ToolTip
     return
 }
-Return
