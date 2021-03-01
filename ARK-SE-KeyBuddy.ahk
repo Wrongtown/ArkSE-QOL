@@ -193,6 +193,7 @@ Gui, Add, Link, section xs,
 (
 `nThis program was created using <a href="https://autohotkey.com/">AutoHotKey</a> which is free and <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">open-source `(GNU GPLv2`)</a>.
 Initial development by Troy Hall AKA Wrongtown.
+Source code available at <a href="https://autohotkey.com/">https://github.com/Wrongtown/ArkSE-QOL</a>.
 Sound effects (where present) are simply utilizing existing media available on your Windows 10 PC.
 )
 Gui, Add, Text, xp+680 yp+20 w10, 

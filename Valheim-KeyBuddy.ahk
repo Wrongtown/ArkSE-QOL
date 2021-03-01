@@ -86,7 +86,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 ; Gui, Add, Picture, x1035, C:\Users\hall1t\Documents\GitHub\automation-testing-experiments\AHK-Common Underwriting Messages\resources\robotic-48-debug.ico
 ; Gui, Add, Picture, x680, robotic-48.ico
-Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim and probably most other stuff built with the same engine.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
+Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim, as of v0.11 this is limited to entering the IP:Port.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
 Gui, Add, Link, section xs, `nIf you have any feedback please <a href="mailto:%Contact_Email%%Email_Subject%%Email_Body%">click here</a> or use the button on the main window.
 Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, %App1Name%|Other information
 
@@ -193,7 +193,8 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 Gui, Add, Link, section xs,
 (
 `nThis program was created using <a href="https://autohotkey.com/">AutoHotKey</a> which is free and <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">open-source `(GNU GPLv2`)</a>.
-Initial development by Troy Hall AKA Wrongtown.
+Initial development by Troy Hall AKA Wrongtown based off a similar tool for Ark: Survival Evolved.
+Source code available at <a href="https://github.com/Wrongtown/ArkSE-QOL">https://github.com/Wrongtown/ArkSE-QOL</a>.
 Sound effects (where present) are simply utilizing existing media available on your Windows 10 PC.
 )
 Gui, Add, Text, xp+680 yp+20 w10, 
