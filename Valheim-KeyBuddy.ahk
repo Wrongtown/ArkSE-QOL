@@ -41,15 +41,8 @@ if !FileExist(A_ScriptDir . "vh-splash.png")
   FileInstall, resources/vh-splash.png, vh-splash.png, 1
 }
 
-if !FileExist(A_ScriptDir . "pr-togg.jpg")
-{
-; MsgBox, 0, PR-FAIL, Failure to find unexpected file successful.
-  FileInstall, resources/pr-togg.jpg, pr-togg.jpg, 1
-}
-
-
-
 SplashImage, vh-splash.png, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script`nfrom Valheim press`nCtrl+F10`n
+SetTimer, SplashOff, 2000
 
 ; #Include Lib\Run_Only_If_Compiled.ahk
 
