@@ -3,7 +3,7 @@ Cruise control for Ark:SE
 
 
 ## How to use
-Download the repository or if you prefer just the [../KeyBuddy-Ark/KeyBuddy - ARK.exe](https://github.com/Wrongtown/ArkSE-QOL/blob/main/KeyBuddy-Ark/KeyBuddy%20-%20ARK.exe) executable.
+Download the repository or if you prefer just the relevant executable from [Releases](https://github.com/Wrongtown/ArkSE-QOL/releases).
 
 Ideally save that .exe in a folder of its own and run the .exe
 
