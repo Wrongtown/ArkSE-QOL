@@ -87,55 +87,6 @@ Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherit
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 y+30 r1 , Middle Mouse Button
-
-Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
-Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
-Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 , 
-(
-Toggle Cruise Control on or off for the W key (walking/flying/swimming forward at normal pace)`n
-   * Please note that if you want to toggle Sprinting this is already available with the Right Shift key.`n
-)
-
-Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
-Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
-Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
-Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
-; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 r1 , F2
-
-Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
-Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
-Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 , 
-(
-	Toggle Cruise Control for the Left Mouse Button (swinging axes, pickaxes etc) `n
-)
-
-Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
-Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
-Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
-Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
-; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 r1 , F4
-
-Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
-Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
-Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 , 
-(
-  Toggle Cruise Control for the E (gathering berries) `n   * CAUTION MUST BE EXERCISED TO AVOID CATASTROPHIC DISMOUNT`n
-)
-
-Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
-Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
-Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
-Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
-; Gui, Add, Text, xs
 Gui, Add, Text, xs+20 r1 , F11
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
@@ -167,7 +118,7 @@ Shut down the script from the Valheim window, avoiding the need to find the wind
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-235 w1,
+Gui, Add, Text, section xp-0 yp-125 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -196,7 +147,7 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+430 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Button, xp+336 yp+230 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
 Gui, Add, Text, xp-530 yp+20 w10, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
@@ -218,30 +169,9 @@ Return
 #IfWinActive ahk_exe Valheim.exe
 ; #IfWinActive Untitled - Notepad ; Debug only
 ^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down app
-MButton:: Gosub, WCC_Active ; Middle Mouse Button will hold down W key to move foward
-F2:: Gosub, Hold_LeftClick_Active ; F2 holds down left mouse button
-F4:: Gosub, Hold_E_Active ; F4 holds down E key 
 F11:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under IP
 ;no need, use right shift instead
 ;XButton2:: Send % "{shift " . ( GetKeyState("shift") ? "Up}" : "Down}" )
-
-WCC_Active:
-Send % "{w " . ( GetKeyState("w") ? "Up}" : "Down}" ) 
-SplashImage, pr-togg.jpg, b fs8, Script Toggle 
-SetTimer, SplashOff, 300
-Return
-
-Hold_LeftClick_Active:
-Send % "{Click " . ( GetKeyState("LButton") ? "Up}" : "Down}" )
-SplashImage, pr-togg.jpg, b fs8, Script Toggle 
-SetTimer, SplashOff, 300
-Return
-
-Hold_E_Active:
-Send % "{e " . ( GetKeyState("e") ? "Up}" : "Down}" ) 
-SplashImage, pr-togg.jpg, b fs8, Script Toggle 
-SetTimer, SplashOff, 300
-Return
 
 InputIpPort:
 send {Text}%IpPort%
