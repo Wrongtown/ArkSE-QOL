@@ -5,8 +5,8 @@ UniqueShortcutString:= "KeyBuddy - Valheim" ; This should match KeyBuddy_Subtype
 
 Sleep, 800
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.12 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.12) is available. Also found at
+KeyBuddy_Version = 0.13 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.13) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "0.12", company := "Wrongtown"    ; Keep these lines together
+version := "0.13", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
@@ -75,7 +75,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 ; Gui, Add, Picture, x1035, C:\Users\hall1t\Documents\GitHub\automation-testing-experiments\AHK-Common Underwriting Messages\resources\robotic-48-debug.ico
 ; Gui, Add, Picture, x680, robotic-48.ico
-Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim, as of v0.11 this is limited to entering the IP:Port.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
+Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim, as of v0.13 this is limited to entering the IP:Port.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
 Gui, Add, Link, section xs, `nIf you have any feedback please <a href="https://github.com/Wrongtown/ArkSE-QOL/issues">click here</a> or use the button on the main window to report it on github.
 Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, %App1Name%|Other information
 
@@ -95,9 +95,11 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-If you add a [Server]IP string to KB.txt I will input it when you press F11.`n
+If you add a [Server]IP string to KB.txt (located in the same directory as this application) I will input it when you press F11.`nPlease note this string must be present when running, if you edit it you must re-start this application to use the new value.
 `n
 )
+
+Gui, Add, Button, xp+305 yp+30 w60 h30 Default gEditKbTxt_Pressed, Edit KB.txt 
 
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
@@ -118,7 +120,7 @@ Shut down the script from the Valheim window, avoiding the need to find the wind
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-125 w1,
+Gui, Add, Text, section xp-0 yp-135 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -177,6 +179,10 @@ InputIpPort:
 send {Text}%IpPort%
 Return
 
+EditKbTxt_Pressed:
+Run, notepad %A_ScriptDir%\KB.txt
+Return
+
 SplashOff() {
 	SplashImage, Off
 }
@@ -193,7 +199,7 @@ ButtonRemoveKeyBuddy:
 MsgBox, 0, Manual deletion required, To remove this script entirely you just need to delete the files from %A_ScriptDir%`n`nI'll attempt to open that directory now, and then shut myself down after 5 seconds.`nThe rest is up to you.
 Run, explorer %A_ScriptDir%
 Sleep, 5000
-Gosub, ButtonDie_Pressed
+Gosub, ButtonDie_Pressed 
 
 GuiClose:
 ButtonDie_Pressed:
