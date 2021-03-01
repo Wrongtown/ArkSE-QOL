@@ -21,7 +21,7 @@ Gui, Add, Button, x10 y20 w50 h40 gButtonAbout_Pressed vButtonAbout_Pressed, &Ab
 ButtonAbout_Pressed_TT := ""
 ;Button to invoke ButtonFeedback_Pressed opening email message with address and Subject pre-filled
 gui, font, s8 q5, Verdana
-Gui, Add, Button, xp+60 yp+0 w80 h40 gButtonFeedback_Pressed vButtonFeedback_Pressed, &Report issue via email
+Gui, Add, Button, xp+60 yp+0 w80 h40 gButtonFeedback_Pressed vButtonFeedback_Pressed, &Report an issue
 ButtonFeedback_Pressed_TT := ""
 ; Button to invoke ButtonDie_Pressed, halting the KeyBuddy and Closing the UI. 
 gui, font, s8 q5, Verdana
