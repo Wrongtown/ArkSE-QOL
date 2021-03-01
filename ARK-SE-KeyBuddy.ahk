@@ -5,8 +5,8 @@ UniqueShortcutString:= "KeyBuddy - Ark" ; This should match KeyBuddy_Subtype
 
 Sleep, 800
 KeyBuddy_Subtype = KeyBuddy - ARK:SE 
-KeyBuddy_Version = 0.09 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.09) is available. Also found at
+KeyBuddy_Version = 0.10 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.10) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Ark: Survival Evolved"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ARKInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "0.09", company := "Wrongtown"    ; Keep these lines together
+version := "0.10", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Ark\KeyBuddy - ARK
@@ -146,7 +146,7 @@ Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherit
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 r1 , F10
+Gui, Add, Text, xs+20 r1 , F11
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
