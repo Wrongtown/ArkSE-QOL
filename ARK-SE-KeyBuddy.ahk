@@ -5,8 +5,8 @@ UniqueShortcutString:= "KeyBuddy - Ark" ; This should match KeyBuddy_Subtype
 
 Sleep, 800
 KeyBuddy_Subtype = KeyBuddy - ARK:SE 
-KeyBuddy_Version = 0.10 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.10) is available. Also found at
+KeyBuddy_Version = 1.00 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (1.00) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Ark: Survival Evolved"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ARKInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "0.10", company := "Wrongtown"    ; Keep these lines together
+version := "1.00", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Ark\KeyBuddy - ARK
