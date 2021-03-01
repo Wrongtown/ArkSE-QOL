@@ -5,8 +5,8 @@ UniqueShortcutString:= "KeyBuddy - Valheim" ; This should match KeyBuddy_Subtype
 
 Sleep, 800
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.11 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.11) is available. Also found at
+KeyBuddy_Version = 0.12 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.12) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "0.11", company := "Wrongtown"    ; Keep these lines together
+version := "0.12", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
