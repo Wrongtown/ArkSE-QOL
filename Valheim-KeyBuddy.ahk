@@ -1,27 +1,27 @@
-InstallDirectorySuffix:= "\KeyBuddy\ARK\"
-UniqueShortcutString:= "KeyBuddy - Ark" ; This should match KeyBuddy_Subtype
+InstallDirectorySuffix:= "\KeyBuddy\Valheim\"
+UniqueShortcutString:= "KeyBuddy - Valheim" ; This should match KeyBuddy_Subtype
 #Include Lib\Initialize_Defaults.ahk
 #Include Lib\defaultAvatar.ahk
 
 Sleep, 800
-KeyBuddy_Subtype = KeyBuddy - ARK:SE 
-KeyBuddy_Version = 1.00 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (1.00) is available. Also found at
+KeyBuddy_Subtype = KeyBuddy - Valheim 
+KeyBuddy_Version = 0.13 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.13) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
-App1Name:= "Ark: Survival Evolved"
-RunLogFileAndPath:= A_ScriptDir . "ARKRun.txt"
-InvokeLogFileAndPath:= A_ScriptDir . "ARKInvoke.txt"
-; latestversionexplorerpath:= A_ScriptDir . "KeyBuddy\KeyBuddy-ARK\"
+App1Name:= "Valheim"
+RunLogFileAndPath:= A_ScriptDir . "ValheimRun.txt"
+InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
+; latestversionexplorerpath:= A_ScriptDir . "KeyBuddy\KeyBuddy-Valheim\"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "1.00", company := "Wrongtown"    ; Keep these lines together
+version := "0.13", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
-;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Ark\KeyBuddy - ARK
-;@Ahk2Exe-AddResource *24 %A_ScriptDir%\resources\ARK.ahk.manifest, 1
-;@Ahk2Exe-Let var = KeyBuddy - ARK, var1 = Copyright`, Troy Hall
+;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
+;@Ahk2Exe-AddResource *24 %A_ScriptDir%\resources\Valheim.ahk.manifest, 1
+;@Ahk2Exe-Let var = KeyBuddy - Valheim, var1 = Copyright`, Troy Hall
 ;@Ahk2Exe-SetOrigFilename %A_ScriptName%
 ;@Ahk2Exe-AddResource resources\robotic-48.ico
 ;@Ahk2Exe-SetMainIcon resources\robotic-48.ico
@@ -29,27 +29,20 @@ version := "1.00", company := "Wrongtown"    ; Keep these lines together
 #Include Lib\DefaultCompilerDirectives.ahk
 
 IniRead, ReportLogs, %A_ScriptDir%\KB.txt, Rep, Enable, Could Not Find Valid Enabler Flag - please report this error.
-IniRead, LogVal, %A_ScriptDir%\KB.txt, Log, Val, No LogVal found in KB.txt
+IniRead, IpPort, %A_ScriptDir%\KB.txt, Server, IP, Could Not Find Valid IP:Port value - can't do much to help you there.
+
 
 #Include Lib\MovemberAvatar.ahk
 
 ; Only bother installing images if they're not available
-if !FileExist(A_ScriptDir . "pr-splash.jpg")
+if !FileExist(A_ScriptDir . "vh-splash.png")
 {
 ; MsgBox, 0, PR-FAIL, Failure to find unexpected file successful.
-  FileInstall, resources/pr-splash.jpg, pr-splash.jpg, 1
+  FileInstall, resources/vh-splash.png, vh-splash.png, 1
 }
 
-if !FileExist(A_ScriptDir . "pr-togg.jpg")
-{
-; MsgBox, 0, PR-FAIL, Failure to find unexpected file successful.
-  FileInstall, resources/pr-togg.jpg, pr-togg.jpg, 1
-}
-
-
-
-SplashImage, pr-splash.jpg, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script`nfrom Ark:SE press`nCtrl+F10`n
-SetTimer, SplashOff, 3000
+SplashImage, vh-splash.png, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script`nfrom Valheim press`nCtrl+F10`n
+SetTimer, SplashOff, 2000
 
 ; #Include Lib\Run_Only_If_Compiled.ahk
 
@@ -82,61 +75,12 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 ; Gui, Add, Picture, x1035, C:\Users\hall1t\Documents\GitHub\automation-testing-experiments\AHK-Common Underwriting Messages\resources\robotic-48-debug.ico
 ; Gui, Add, Picture, x680, robotic-48.ico
-Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Ark: Survival Evolved and probably most other stuff built with the same engine.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
-Gui, Add, Link, section xs, `nIf you have any feedback please <a href="mailto:%Contact_Email%%Email_Subject%%Email_Body%">click here</a> or use the button on the main window.
+Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim, as of v0.13 this is limited to entering the IP:Port.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
+Gui, Add, Link, section xs, `nIf you have any feedback please <a href="https://github.com/Wrongtown/ArkSE-QOL/issues">click here</a> or use the button on the main window to report it on github.
 Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, %App1Name%|Other information
 
 Gui, Tab, %App1Name%, , Exact
 Gui, Add, Text, section xp-0 yp+40 w1,
-
-Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
-Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
-Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
-Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
-; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 y+30 r1 , Middle Mouse Button
-
-Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
-Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
-Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 , 
-(
-Toggle Cruise Control on or off for the W key (walking/flying/swimming forward at normal pace)`n
-   * Please note that if you want to toggle Sprinting this is already available with the Right Shift key.`n
-)
-
-Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
-Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
-Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
-Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
-; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 r1 , F2
-
-Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
-Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
-Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 , 
-(
-	Toggle Cruise Control for the Left Mouse Button (swinging axes, pickaxes etc) `n
-)
-
-Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
-Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
-Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
-Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
-; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 r1 , F4
-
-Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
-Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
-Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 , 
-(
-  Toggle Cruise Control for the E (gathering berries) `n   * CAUTION MUST BE EXERCISED TO AVOID CATASTROPHIC DISMOUNT`n
-)
 
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
@@ -151,9 +95,11 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-If you add a [Log]Val string to KB.txt I will input it`n
+If you add a [Server]IP string to KB.txt (located in the same directory as this application) I will input it when you press F11.`nPlease note this string must be present when running, if you edit it you must re-start this application to use the new value.
 `n
 )
+
+Gui, Add, Button, xp+305 yp+30 w60 h30 Default gEditKbTxt_Pressed, Edit KB.txt 
 
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
@@ -168,13 +114,13 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-Shut down the script from the Ark:SE window, avoiding the need to find the window and select Exit.`n
+Shut down the script from the Valheim window, avoiding the need to find the window and select Exit.`n
 `n
 )
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-235 w1,
+Gui, Add, Text, section xp-0 yp-135 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -189,8 +135,8 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 Gui, Add, Link, section xs,
 (
 `nThis program was created using <a href="https://autohotkey.com/">AutoHotKey</a> which is free and <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">open-source `(GNU GPLv2`)</a>.
-Initial development by Troy Hall AKA Wrongtown.
-Source code available at <a href="https://autohotkey.com/">https://github.com/Wrongtown/ArkSE-QOL</a>.
+Initial development by Troy Hall AKA Wrongtown based off a similar tool for Ark: Survival Evolved.
+Source code available at <a href="https://github.com/Wrongtown/ArkSE-QOL">https://github.com/Wrongtown/ArkSE-QOL</a>.
 Sound effects (where present) are simply utilizing existing media available on your Windows 10 PC.
 )
 Gui, Add, Text, xp+680 yp+20 w10, 
@@ -203,7 +149,7 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+430 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Button, xp+336 yp+230 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
 Gui, Add, Text, xp-530 yp+20 w10, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
@@ -222,36 +168,19 @@ Return
 ; **** HotKeys - Customize below for your preferences ****
 
 
-#IfWinActive ahk_exe ShooterGame.exe
+#IfWinActive ahk_exe Valheim.exe
 ; #IfWinActive Untitled - Notepad ; Debug only
 ^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down app
-MButton:: Gosub, WCC_Active ; Middle Mouse Button will hold down W key to move foward
-F2:: Gosub, Hold_LeftClick_Active ; F2 holds down left mouse button
-F4:: Gosub, Hold_E_Active ; F4 holds down E key 
-F11:: Gosub, InputLogVal ; Input the string retrieved from KB.txt under LogVal
+F11:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under IP
 ;no need, use right shift instead
 ;XButton2:: Send % "{shift " . ( GetKeyState("shift") ? "Up}" : "Down}" )
 
-WCC_Active:
-Send % "{w " . ( GetKeyState("w") ? "Up}" : "Down}" ) 
-SplashImage, pr-togg.jpg, b fs8, Script Toggle 
-SetTimer, SplashOff, 300
+InputIpPort:
+send {Text}%IpPort%
 Return
 
-Hold_LeftClick_Active:
-Send % "{Click " . ( GetKeyState("LButton") ? "Up}" : "Down}" )
-SplashImage, pr-togg.jpg, b fs8, Script Toggle 
-SetTimer, SplashOff, 300
-Return
-
-Hold_E_Active:
-Send % "{e " . ( GetKeyState("e") ? "Up}" : "Down}" ) 
-SplashImage, pr-togg.jpg, b fs8, Script Toggle 
-SetTimer, SplashOff, 300
-Return
-
-InputLogVal:
-send {Text}%LogVal%
+EditKbTxt_Pressed:
+Run, notepad %A_ScriptDir%\KB.txt
 Return
 
 SplashOff() {
@@ -270,12 +199,12 @@ ButtonRemoveKeyBuddy:
 MsgBox, 0, Manual deletion required, To remove this script entirely you just need to delete the files from %A_ScriptDir%`n`nI'll attempt to open that directory now, and then shut myself down after 5 seconds.`nThe rest is up to you.
 Run, explorer %A_ScriptDir%
 Sleep, 5000
-Gosub, ButtonDie_Pressed
+Gosub, ButtonDie_Pressed 
 
 GuiClose:
 ButtonDie_Pressed:
 GuiEscape:
-SplashImage, pr-splash.jpg, b fs18, Script Shutting Down
+SplashImage, vh-splash.png, b fs18, Script Shutting Down
   SetTimer,, Off ; Turn off the pulse.
   Gui, Destroy
   FileDelete, Hat-30.ico

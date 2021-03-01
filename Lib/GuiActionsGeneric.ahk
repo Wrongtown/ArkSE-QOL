@@ -4,7 +4,7 @@ Return
 
 ;When gButtonFeedback_Pressed is triggered by the user set up a pre-filled email.
 ButtonFeedback_Pressed:
-run, mailto:%Contact_Email%%Email_Subject%%Email_Body%
+run, https://github.com/Wrongtown/ArkSE-QOL/issues
 Return
 
 ;When gButtonMinimize_Pressed is triggered by the user minimize the window
