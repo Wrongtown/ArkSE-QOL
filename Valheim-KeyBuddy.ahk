@@ -29,7 +29,8 @@ version := "0.11", company := "Wrongtown"    ; Keep these lines together
 #Include Lib\DefaultCompilerDirectives.ahk
 
 IniRead, ReportLogs, %A_ScriptDir%\KB.txt, Rep, Enable, Could Not Find Valid Enabler Flag - please report this error.
-IniRead, LogVal, %A_ScriptDir%\KB.txt, Log, Val, No LogVal found in KB.txt
+IniRead, IpPort, %A_ScriptDir%\KB.txt, Server, IP, Could Not Find Valid IP:Port value - can't do much to help you there.
+
 
 #Include Lib\MovemberAvatar.ahk
 
@@ -154,7 +155,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-If you add a [Log]Val string to KB.txt I will input it`n
+If you add a [Server]IP string to KB.txt I will input it when you press F11.`n
 `n
 )
 
@@ -230,7 +231,7 @@ Return
 MButton:: Gosub, WCC_Active ; Middle Mouse Button will hold down W key to move foward
 F2:: Gosub, Hold_LeftClick_Active ; F2 holds down left mouse button
 F4:: Gosub, Hold_E_Active ; F4 holds down E key 
-F11:: Gosub, InputLogVal ; Input the string retrieved from KB.txt under LogVal
+F11:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under IP
 ;no need, use right shift instead
 ;XButton2:: Send % "{shift " . ( GetKeyState("shift") ? "Up}" : "Down}" )
 
@@ -252,8 +253,8 @@ SplashImage, pr-togg.jpg, b fs8, Script Toggle
 SetTimer, SplashOff, 300
 Return
 
-InputLogVal:
-send {Text}%LogVal%
+InputIpPort:
+send {Text}%IpPort%
 Return
 
 SplashOff() {
