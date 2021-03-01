@@ -1,27 +1,27 @@
-InstallDirectorySuffix:= "\KeyBuddy\ARK\"
-UniqueShortcutString:= "KeyBuddy - Ark" ; This should match KeyBuddy_Subtype
+InstallDirectorySuffix:= "\KeyBuddy\Valheim\"
+UniqueShortcutString:= "KeyBuddy - Valheim" ; This should match KeyBuddy_Subtype
 #Include Lib\Initialize_Defaults.ahk
 #Include Lib\defaultAvatar.ahk
 
 Sleep, 800
-KeyBuddy_Subtype = KeyBuddy - ARK:SE 
-KeyBuddy_Version = 1.00 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (1.00) is available. Also found at
+KeyBuddy_Subtype = KeyBuddy - Valheim 
+KeyBuddy_Version = 0.11 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.11) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
-App1Name:= "Ark: Survival Evolved"
-RunLogFileAndPath:= A_ScriptDir . "ARKRun.txt"
-InvokeLogFileAndPath:= A_ScriptDir . "ARKInvoke.txt"
-; latestversionexplorerpath:= A_ScriptDir . "KeyBuddy\KeyBuddy-ARK\"
+App1Name:= "Valheim"
+RunLogFileAndPath:= A_ScriptDir . "ValheimRun.txt"
+InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
+; latestversionexplorerpath:= A_ScriptDir . "KeyBuddy\KeyBuddy-Valheim\"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "1.00", company := "Wrongtown"    ; Keep these lines together
+version := "0.11", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
-;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Ark\KeyBuddy - ARK
-;@Ahk2Exe-AddResource *24 %A_ScriptDir%\resources\ARK.ahk.manifest, 1
-;@Ahk2Exe-Let var = KeyBuddy - ARK, var1 = Copyright`, Troy Hall
+;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
+;@Ahk2Exe-AddResource *24 %A_ScriptDir%\resources\Valheim.ahk.manifest, 1
+;@Ahk2Exe-Let var = KeyBuddy - Valheim, var1 = Copyright`, Troy Hall
 ;@Ahk2Exe-SetOrigFilename %A_ScriptName%
 ;@Ahk2Exe-AddResource resources\robotic-48.ico
 ;@Ahk2Exe-SetMainIcon resources\robotic-48.ico
@@ -34,10 +34,10 @@ IniRead, LogVal, %A_ScriptDir%\KB.txt, Log, Val, No LogVal found in KB.txt
 #Include Lib\MovemberAvatar.ahk
 
 ; Only bother installing images if they're not available
-if !FileExist(A_ScriptDir . "pr-splash.jpg")
+if !FileExist(A_ScriptDir . "vh-splash.png")
 {
 ; MsgBox, 0, PR-FAIL, Failure to find unexpected file successful.
-  FileInstall, resources/pr-splash.jpg, pr-splash.jpg, 1
+  FileInstall, resources/vh-splash.png, vh-splash.png, 1
 }
 
 if !FileExist(A_ScriptDir . "pr-togg.jpg")
@@ -48,7 +48,7 @@ if !FileExist(A_ScriptDir . "pr-togg.jpg")
 
 
 
-SplashImage, pr-splash.jpg, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script`nfrom Ark:SE press`nCtrl+F10`n
+SplashImage, vh-splash.png, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script`nfrom Valheim press`nCtrl+F10`n
 SetTimer, SplashOff, 3000
 
 Contact_Email = troy.hall@rac.com.au
@@ -85,7 +85,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 ; Gui, Add, Picture, x1035, C:\Users\hall1t\Documents\GitHub\automation-testing-experiments\AHK-Common Underwriting Messages\resources\robotic-48-debug.ico
 ; Gui, Add, Picture, x680, robotic-48.ico
-Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Ark: Survival Evolved and probably most other stuff built with the same engine.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
+Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim and probably most other stuff built with the same engine.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
 Gui, Add, Link, section xs, `nIf you have any feedback please <a href="mailto:%Contact_Email%%Email_Subject%%Email_Body%">click here</a> or use the button on the main window.
 Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, %App1Name%|Other information
 
@@ -171,7 +171,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-Shut down the script from the Ark:SE window, avoiding the need to find the window and select Exit.`n
+Shut down the script from the Valheim window, avoiding the need to find the window and select Exit.`n
 `n
 )
 
@@ -224,7 +224,7 @@ Return
 ; **** HotKeys - Customize below for your preferences ****
 
 
-#IfWinActive ahk_exe ShooterGame.exe
+#IfWinActive ahk_exe Valheim.exe
 ; #IfWinActive Untitled - Notepad ; Debug only
 ^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down app
 MButton:: Gosub, WCC_Active ; Middle Mouse Button will hold down W key to move foward
@@ -277,7 +277,7 @@ Gosub, ButtonDie_Pressed
 GuiClose:
 ButtonDie_Pressed:
 GuiEscape:
-SplashImage, pr-splash.jpg, b fs18, Script Shutting Down
+SplashImage, vh-splash.png, b fs18, Script Shutting Down
   SetTimer,, Off ; Turn off the pulse.
   Gui, Destroy
   FileDelete, Hat-30.ico
