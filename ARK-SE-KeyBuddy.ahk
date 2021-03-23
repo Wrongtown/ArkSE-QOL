@@ -5,8 +5,8 @@ UniqueShortcutString:= "KeyBuddy - Ark" ; This should match KeyBuddy_Subtype
 
 Sleep, 800
 KeyBuddy_Subtype = KeyBuddy - ARK:SE 
-KeyBuddy_Version = 1.01 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (1.01) is available. Also found at
+KeyBuddy_Version = 1.02 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (1.02) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Ark: Survival Evolved"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ARKInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "1.01", company := "Wrongtown"    ; Keep these lines together
+version := "1.02", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Ark\KeyBuddy - ARK
@@ -83,7 +83,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Picture, x1035, C:\Users\hall1t\Documents\GitHub\automation-testing-experiments\AHK-Common Underwriting Messages\resources\robotic-48-debug.ico
 ; Gui, Add, Picture, x680, robotic-48.ico
 Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Ark: Survival Evolved and probably most other stuff built with the same engine.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
-Gui, Add, Link, section xs, `nIf you have any feedback please <a href="mailto:%Contact_Email%%Email_Subject%%Email_Body%">click here</a> or use the button on the main window.
+Gui, Add, Link, section xs, `nIf you have any feedback please <a href="https://github.com/Wrongtown/ArkSE-QOL/issues">click here</a> or use the button on the main window to report it on github.
 Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, %App1Name%|Other information
 
 Gui, Tab, %App1Name%, , Exact
