@@ -75,7 +75,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 ; Gui, Add, Picture, x1035, C:\Users\hall1t\Documents\GitHub\automation-testing-experiments\AHK-Common Underwriting Messages\resources\robotic-48-debug.ico
 ; Gui, Add, Picture, x680, robo-viking.ico
-Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim, as of v0.14 this is limited to entering the IP:Port.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
+Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
 Gui, Add, Link, section xs, `nIf you have any feedback please <a href="https://github.com/Wrongtown/ArkSE-QOL/issues">click here</a> or use the button on the main window to report it on github.
 Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, %App1Name%|Other information
 
@@ -106,6 +106,24 @@ Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherit
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, xs
+
+Gui, Add, Text, xs+20 r1 , Q
+
+Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
+Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
+Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Text, xs+20 , 
+(
+This will toggle pressing down on the W key, so you can run on cruise control while still changing direction.`nPressing it again or pressing the W key yourself will cancel the cruise control.`n
+`n
+)
+
+Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
+Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
+Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
+Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
+
 Gui, Add, Text, xs+20 r1 , Ctrl+F10
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
@@ -120,7 +138,7 @@ Shut down the script from the Valheim window, avoiding the need to find the wind
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-135 w1,
+Gui, Add, Text, section xp-0 yp-235 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -149,7 +167,7 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+230 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Button, xp+336 yp+330 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
 Gui, Add, Text, xp-530 yp+20 w10, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
