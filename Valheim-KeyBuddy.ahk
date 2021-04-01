@@ -5,8 +5,8 @@ FileInstall, resources/robo-viking.ico, robotic-48.ico, 1
 
 Sleep, 800
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.15 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.15) is available. Also found at
+KeyBuddy_Version = 0.16 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.16) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "0.15", company := "Wrongtown"    ; Keep these lines together
+version := "0.16", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
@@ -107,18 +107,6 @@ Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherite
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, xs
 
-Gui, Add, Text, xs+20 r1 , Q
-
-Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
-Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
-Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 , 
-(
-This will toggle pressing down on the W key, so you can run on cruise control while still changing direction.`nPressing it again or pressing the W key yourself will cancel the cruise control.`n
-`n
-)
-
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -190,7 +178,6 @@ Return
 ; #IfWinActive Untitled - Notepad ; Debug only
 ^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down app
 F11:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under IP
-Q:: Gosub, CC_Active ; Pressing Q will toggle Cruise control on, will stop when W is pressed
 
 CC_Active:
 Send % "{w " . ( GetKeyState("w") ? "Up}" : "Down}" ) 
