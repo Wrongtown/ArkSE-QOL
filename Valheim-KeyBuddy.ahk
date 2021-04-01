@@ -126,7 +126,7 @@ Shut down the script from the Valheim window, avoiding the need to find the wind
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-235 w1,
+Gui, Add, Text, section xp-0 yp-135 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -155,7 +155,7 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+330 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Button, xp+336 yp+230 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
 Gui, Add, Text, xp-530 yp+20 w10, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
