@@ -29,7 +29,10 @@ version := "0.16", company := "Wrongtown"    ; Keep these lines together
 #Include Lib\DefaultCompilerDirectives.ahk
 
 IniRead, ReportLogs, %A_ScriptDir%\KB.txt, Rep, Enable, Could Not Find Valid Enabler Flag - please report this error.
-IniRead, IpPort, %A_ScriptDir%\KB.txt, Server, IP, Could Not Find Valid IP:Port value - can't do much to help you there.
+IniRead, IpPort, %A_ScriptDir%\KB.txt, Server, IP1, Could Not Find Valid IP:Port value - can't do much to help you there.
+IniRead, Log, %A_ScriptDir%\KB.txt, Log, Val1, Could Not Find Valid Log value - can't do much to help you there.  
+IniRead, IpPort2, %A_ScriptDir%\KB.txt, Server, IP2, Could Not Find Valid IP:Port value - can't do much to help you there.
+IniRead, Log2, %A_ScriptDir%\KB.txt, Log, Val2, Could Not Find Valid Log2 value - can't do much to help you there.
 
 
 #Include Lib\MovemberAvatar.ahk
@@ -66,28 +69,34 @@ Gui, Color, 0xFFD100
 
 Gui +LastFound  ; Make the GUI window the last found window for use below.
 
-Gui, Add, text, xp+740 w1,  ; Establish window width by placing this gui element here
-Gui, Add, text, xp-720 yp+5 ; Re-orient controls back to left justified with 20 pixel margin
+Gui, Add, Button, xp+505 yp+110 w60 h30 Default gEditKbTxt_Pressed, Edit KB.txt 
+Gui, Add, Button, xp+65 yp+0 w100 h30 Default gReload_Pressed, Reload to cache new values
+Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
+Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
+Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
+Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
+; Gui, Add, Text, xs
+
+Gui, Add, text, xp+100 w1,  ; Establish window width by placing this gui element here
+Gui, Add, text, xp-585 yp+5 ; Re-orient controls back to left justified with 20 pixel margin
 Gui, font, s8 norm q5, MS Sans Serif ; Ensure we have size 8 font no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
-
-; Gui, Add, Picture, x1035, C:\Users\hall1t\Documents\GitHub\automation-testing-experiments\AHK-Common Underwriting Messages\resources\robotic-48-debug.ico
 ; Gui, Add, Picture, x680, robo-viking.ico
 Gui, Add, Text, x20 y20 BackgroundTrans section cBlack, I'm your friendly neighbourhood KeyBuddy! I hope you find me useful! `n`nI allow some minor auto-piloting for Valheim.`n`nI check if the game window is active, so any other programs where you use these hotkeys should be unaffected. 
 Gui, Add, Link, section xs, `nIf you have any feedback please <a href="https://github.com/Wrongtown/ArkSE-QOL/issues">click here</a> or use the button on the main window to report it on github.
-Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, %App1Name%|Other information
+Gui, Add, Tab3, r1 x+20 xp+0 yp+70 y+20, Input Server Info|Other information
 
-Gui, Tab, %App1Name%, , Exact
-Gui, Add, Text, section xp-0 yp+40 w1,
+Gui, Tab, Input Server Info, , Exact
+; Gui, Add, Text, section xp-0 yp+20 w1,
 
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, xs
-Gui, Add, Text, xs+20 r1 , F11
+Gui, Add, Text, xs+20 r1 , Input Server IP
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
@@ -95,24 +104,18 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-If you add a [Server]IP string to KB.txt (located in the same directory as this application) I will input it when you press F11.`nPlease note this string must be present when running, if you edit it you must re-start this application to use the new value.
+There are two [Server]IP# strings available in KB.txt (located in the same directory as this application) `nwhich can be edited to trigger on the keys below IF the Valheim window is active. `nWhen you edit KB.txt you must either re-start or reload this application to use the new value.
+`nF10 - [Server]IP1
+`nF11 - [Server]IP2
 `n
 )
 
-Gui, Add, Button, xp+305 yp+30 w60 h30 Default gEditKbTxt_Pressed, Edit KB.txt 
-
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, xs
-
-Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
-Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
-Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
-Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
-
-Gui, Add, Text, xs+20 r1 , Ctrl+F10
+Gui, Add, Text, xs+20 r1 , Input Server Password
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
@@ -120,13 +123,32 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Text, xs+20 , 
 (
-Shut down the script from the Valheim window, avoiding the need to find the window and select Exit.`n
+There are two [Log]Val# strings in KB.txt (located in the same directory as this application) `nwhich can be edited to trigger on the keys below IF the Valheim window is active. `nWhen you edit KB.txt you must either re-start or reload this application to use the new value.
+`nShift+F10 - [Log]Val1
+`nShift+F11 - [Log]Val2
+`n
+)
+
+Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
+Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
+Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
+Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Text, xs+20 r1 , If you want to shut down the app once you're in the server
+
+Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
+Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
+Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Text, xs+20 , 
+(
+Press Ctrl+F10 to shut down the script from the Valheim window, avoiding the need to find this window and select Exit.`n
 `n
 )
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-135 w1,
+Gui, Add, Text, section xp-0 yp-320 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -155,8 +177,8 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+230 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
-Gui, Add, Text, xp-530 yp+20 w10, ; Provide a bit of buffer beneath the Close button.
+Gui, Add, Button, xp+336 yp+400 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Text, xp-336 yp+20 w1, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
 ; This section and the WM_MOUSEMOVE section below allow the user to click anywhere on this window and move it around.
@@ -176,8 +198,16 @@ Return
 
 #IfWinActive ahk_exe Valheim.exe
 ; #IfWinActive Untitled - Notepad ; Debug only
-^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down app
-F11:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under IP
+^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down this app
+F10:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under [Server]IP
+F11:: Gosub, InputIpPort2 ; Input the string retrieved from KB.txt under [Server]IP2
++F10:: Gosub, Log ; input the string retrieved from KB.txt under [Log]Val
++F11:: Gosub, Log2 ; input the string retrieved from KB.txt under [Log]Val2
+
+Reload_Pressed:
+Reload
+Sleep 1000
+Return
 
 CC_Active:
 Send % "{w " . ( GetKeyState("w") ? "Up}" : "Down}" ) 
@@ -190,6 +220,22 @@ Return
 
 InputIpPort:
 send {Text}%IpPort%
+Return
+
+Log:
+send {Text}%Log%
+Sleep, 400
+send {Enter}
+Return
+
+InputIpPort2:
+send {Text}%IpPort2%
+Return
+
+Log2:
+send {Text}%Log2%
+Sleep, 400
+send {Enter}
 Return
 
 EditKbTxt_Pressed:
