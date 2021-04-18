@@ -194,6 +194,10 @@ Gui, Add, Link, section xs,
 If you add a [Game]Path string to KB.txt (located in the same directory as this application) then this app will offer to run it 
 for you if it isn't already running. This path should be the same as you see in a Desktop Shortcut created by Steam, for 
 example: steam://rungameid/892970
+
+
+Ctrl+F5 will input the devcommands and debugmode commands, usually when I've opened the console to test something this 
+is the first step.
 )
 
 Gui, Add, Text, xp+00 yp+160 w1, 
@@ -227,6 +231,7 @@ Return
 
 #IfWinActive ahk_exe Valheim.exe
 ; #IfWinActive Untitled - Notepad ; Debug only
+^F5::Gosub, DevMode ;Enter the needful to enable devmode/debugmode
 ^F10::Gosub, ButtonDie_Pressed ; Ctrl+F10 shut down this app
 F10:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under [Server]IP
 F11:: Gosub, InputIpPort2 ; Input the string retrieved from KB.txt under [Server]IP2
@@ -269,6 +274,16 @@ Return
 
 EditKbTxt_Pressed:
 Run, notepad %A_ScriptDir%\KB.txt
+Return
+
+DevMode:
+send {Text}devcommands
+Sleep, 300
+send {Enter}
+Sleep, 300
+send {Text}debugmode
+Sleep, 300
+send {Enter}
 Return
 
 SplashOff() {
