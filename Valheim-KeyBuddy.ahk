@@ -3,10 +3,10 @@ UniqueShortcutString:= "KeyBuddy - Valheim" ; This should match KeyBuddy_Subtype
 #Include Lib\Initialize_Defaults.ahk
 FileInstall, resources/robo-viking.ico, robotic-48.ico, 1
 
-Sleep, 800
+; Sleep, 500
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.16 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.16) is available. Also found at
+KeyBuddy_Version = 0.17 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.17) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "0.16", company := "Wrongtown"    ; Keep these lines together
+version := "0.17", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
@@ -55,7 +55,7 @@ if !FileExist(A_ScriptDir . "vh-splash.png")
 }
 
 SplashImage, vh-splash.png, b fs18, %KeyBuddy_Subtype% v%KeyBuddy_Version% `n by Wrongtown 2021 `n `n To stop the script`nfrom Valheim press`nCtrl+F10`n
-SetTimer, SplashOff, 2000
+SetTimer, SplashOff, 800
 
 ; #Include Lib\Run_Only_If_Compiled.ahk
 
