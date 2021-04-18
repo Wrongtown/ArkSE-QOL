@@ -28,12 +28,22 @@ version := "0.16", company := "Wrongtown"    ; Keep these lines together
  ; End CompilerDirectives for this version
 #Include Lib\DefaultCompilerDirectives.ahk
 
+IniRead, GamePath, %A_ScriptDir%\KB.txt, Game, Path, Game Path not provided - will not offer to run
 IniRead, ReportLogs, %A_ScriptDir%\KB.txt, Rep, Enable, Could Not Find Valid Enabler Flag - please report this error.
 IniRead, IpPort, %A_ScriptDir%\KB.txt, Server, IP1, Could Not Find Valid IP:Port value - can't do much to help you there.
 IniRead, Log, %A_ScriptDir%\KB.txt, Log, Val1, Could Not Find Valid Log value - can't do much to help you there.  
 IniRead, IpPort2, %A_ScriptDir%\KB.txt, Server, IP2, Could Not Find Valid IP:Port value - can't do much to help you there.
 IniRead, Log2, %A_ScriptDir%\KB.txt, Log, Val2, Could Not Find Valid Log2 value - can't do much to help you there.
 
+If GamePath is Not space
+{
+  If Not WinExist("Valheim")
+    {
+    MsgBox, 4, Run Valheim?, Do you want to start Valheim?
+    IfMsgBox, Yes
+      Run, explorer %GamePath%
+    }
+}
 
 #Include Lib\MovemberAvatar.ahk
 
@@ -167,7 +177,26 @@ Initial development by Troy Hall AKA Wrongtown based off a similar tool for Ark:
 Source code available at <a href="https://github.com/Wrongtown/ArkSE-QOL">https://github.com/Wrongtown/ArkSE-QOL</a>.
 Sound effects (where present) are simply utilizing existing media available on your Windows 10 PC.
 )
-Gui, Add, Text, xp+680 yp+20 w10, 
+
+Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
+Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
+Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
+Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Text, xs yp+80 r1 , `nFurther Options
+
+Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
+Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
+Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Link, section xs, 
+(
+If you add a [Game]Path string to KB.txt (located in the same directory as this application) then this app will offer to run it 
+for you if it isn't already running. This path should be the same as you see in a Desktop Shortcut created by Steam, for 
+example: steam://rungameid/892970
+)
+
+Gui, Add, Text, xp+00 yp+160 w1, 
 
 Gui, Tab ; End tabbed GUI section
 
