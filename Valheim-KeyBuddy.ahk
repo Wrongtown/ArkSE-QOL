@@ -14,6 +14,9 @@ RunLogFileAndPath:= A_ScriptDir . "ValheimRun.txt"
 InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
 ; latestversionexplorerpath:= A_ScriptDir . "KeyBuddy\KeyBuddy-Valheim\"
 Avatar_TT := ""
+MainGuiExtra:= "True"
+ButtonMainGuiExtra1_Pressed_Label:= "Run Valheim"
+ButtonMainGuiExtra1_Pressed_TT:= "Only if it's not already existing"
 
   ; Start CompilerDirectives for this version
 version := "0.18", company := "Wrongtown"    ; Keep these lines together
@@ -45,6 +48,18 @@ If GamePath is Not space
     }
 }
 
+ButtonMainGuiExtra1_Pressed:
+If Not WinExist("Valheim")
+  {
+        Run, explorer %GamePath%
+        ; MsgBox, 0, ButtonMainGuiExtra1_Pressed triggered, Click OK, 1
+        Return  
+  }
+  Else
+  {
+    MsgBox, 0, Valheim Window Already Exists?, It appears that there's already a window with the title 'Valheim' so the tool will not attempt to run it at this time.
+    Return
+  }
 #Include Lib\MovemberAvatar.ahk
 
 ; Only bother installing images if they're not available
