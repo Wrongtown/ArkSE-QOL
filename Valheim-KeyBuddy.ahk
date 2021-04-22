@@ -45,7 +45,13 @@ If GamePath is Not space
     {
     MsgBox, 4, Run Valheim?, Do you want to start Valheim?
     IfMsgBox, Yes
-      Run, explorer %GamePath%
+    {
+      Run, explorer %GamePath%      
+    }
+    IfMsgBox, No
+    {
+      MsgBox, 0, You're the boss!, No problem.`n`nThis message will close itself.,1
+    }
     }
 }
 
