@@ -3,15 +3,7 @@ Gui, Margin, 5, 10
 Gui, Color, 0x244560
 Gui +LastFound
 
-If EggDay = True
-{
-  Gui, Add, Picture, x209 y25, robotic-48.ico
-  Gui, Add, Picture, x218 y-2, Hat-30.ico
-}
-If EggDay != True
-{
-  Gui, Add, Picture, x209 y14 gAvatar vAvatar, robotic-48.ico
-}
+
 
 ;Button to invoke ButtonAbout_Pressed  
 Gui, Font, s8 q5, MS Sans Serif ; Fallback font last attempt. before default to system default
@@ -23,9 +15,26 @@ ButtonAbout_Pressed_TT := ""
 gui, font, s8 q5, Verdana
 Gui, Add, Button, xp+60 yp+0 w80 h40 gButtonFeedback_Pressed vButtonFeedback_Pressed, &Report an issue
 ButtonFeedback_Pressed_TT := ""
+
+If MainGuiExtra = True
+{
+#Include Lib\MainGuiExtra.ahk
+}
+Else
+
+If EggDay = True
+{
+  Gui, Add, Picture, xp+60 y25, robotic-48.ico
+  Gui, Add, Picture, xp+78 y-2, Hat-30.ico
+}
+If EggDay != True
+{
+  Gui, Add, Picture, xp+60 y14 gAvatar vAvatar, robotic-48.ico
+}
+
 ; Button to invoke ButtonDie_Pressed, halting the KeyBuddy and Closing the UI. 
 gui, font, s8 q5, Verdana
-Gui, Add, Button, xp+230 yp+20 w40 h20 gButtonDie_Pressed vButtonDie_Pressed, Exit 
+Gui, Add, Button, xp+60 yp+20 w40 h20 gButtonDie_Pressed vButtonDie_Pressed, Exit 
 ButtonDie_Pressed_TT := ""
 
 Gui, Show
