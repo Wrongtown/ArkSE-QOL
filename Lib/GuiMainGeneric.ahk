@@ -16,12 +16,6 @@ gui, font, s8 q5, Verdana
 Gui, Add, Button, xp+60 yp+0 w80 h40 gButtonFeedback_Pressed vButtonFeedback_Pressed, &Report an issue
 ButtonFeedback_Pressed_TT := ""
 
-If MainGuiExtra = True
-{
-#Include Lib\MainGuiExtra.ahk
-}
-Else
-
 If EggDay = True
 {
   Gui, Add, Picture, xp+60 y25, robotic-48.ico
