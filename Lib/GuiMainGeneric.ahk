@@ -23,12 +23,12 @@ If EggDay = True
 }
 If EggDay != True
 {
-  Gui, Add, Picture, xp+60 y14 gAvatar vAvatar, robotic-48.ico
+  Gui, Add, Picture, xp+120 y14 gAvatar vAvatar, robotic-48.ico
 }
 
 ; Button to invoke ButtonDie_Pressed, halting the KeyBuddy and Closing the UI. 
 gui, font, s8 q5, Verdana
-Gui, Add, Button, xp+60 yp+20 w40 h20 gButtonDie_Pressed vButtonDie_Pressed, Exit 
+Gui, Add, Button, xp+80 yp+20 w40 h20 gButtonDie_Pressed vButtonDie_Pressed, Exit 
 ButtonDie_Pressed_TT := ""
 
 Gui, Show
