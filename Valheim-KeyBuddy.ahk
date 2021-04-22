@@ -5,8 +5,8 @@ FileInstall, resources/robo-viking.ico, robotic-48.ico, 1
 
 ; Sleep, 500
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.17 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.17) is available. Also found at
+KeyBuddy_Version = 0.18 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.18) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -16,7 +16,7 @@ InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
 Avatar_TT := ""
 
   ; Start CompilerDirectives for this version
-version := "0.17", company := "Wrongtown"    ; Keep these lines together
+version := "0.18", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
