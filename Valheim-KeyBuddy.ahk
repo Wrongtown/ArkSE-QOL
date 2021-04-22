@@ -5,8 +5,8 @@ FileInstall, resources/robo-viking.ico, robotic-48.ico, 1
 
 ; Sleep, 500
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.18 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.18) is available. Also found at
+KeyBuddy_Version = 0.19 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.19) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -14,9 +14,13 @@ RunLogFileAndPath:= A_ScriptDir . "ValheimRun.txt"
 InvokeLogFileAndPath:= A_ScriptDir . "ValheimInvoke.txt"
 ; latestversionexplorerpath:= A_ScriptDir . "KeyBuddy\KeyBuddy-Valheim\"
 Avatar_TT := ""
+MainGuiExtra:= "True"
+ButtonMainGuiExtra1_Pressed_Label:= "Run Valheim"
+ButtonMainGuiExtra1_Pressed_TT:= "Only if it's not already existing"
+NeverTrue:= "False"
 
   ; Start CompilerDirectives for this version
-version := "0.18", company := "Wrongtown"    ; Keep these lines together
+version := "0.19", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
@@ -41,9 +45,40 @@ If GamePath is Not space
     {
     MsgBox, 4, Run Valheim?, Do you want to start Valheim?
     IfMsgBox, Yes
-      Run, explorer %GamePath%
+    {
+      Run, explorer %GamePath%      
+    }
+    IfMsgBox, No
+    {
+      MsgBox, 0, You're the boss!, No problem.`n`nThis message will close itself.,1
+    }
     }
 }
+
+If NeverTrue = True
+{
+  ButtonMainGuiExtra1_Pressed:
+  If GamePath is Not space
+  {
+    If Not WinExist("Valheim")
+      {
+            Run, explorer %GamePath%
+            ; MsgBox, 0, ButtonMainGuiExtra1_Pressed triggered, Click OK, 1
+            Return  
+      }
+    Else
+      {
+        MsgBox, 0, Valheim Window Already Exists?, It appears that there's already a window with the title 'Valheim' so the tool will not attempt to run it at this time.
+        Return
+      }
+  }
+  Else
+    {
+      MsgBox, 0, GamePath Required, You must populate the [Game]Path entry in the KB.txt file under %A_ScriptDir%\`n`nSee the 'About' screen for more information on this.
+      Return
+    }
+}
+
 
 #Include Lib\MovemberAvatar.ahk
 
