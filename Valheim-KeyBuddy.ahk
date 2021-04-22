@@ -57,19 +57,28 @@ If GamePath is Not space
 
 If NeverTrue = True
 {
-ButtonMainGuiExtra1_Pressed:
-If Not WinExist("Valheim")
+  ButtonMainGuiExtra1_Pressed:
+  If GamePath is Not space
   {
-        Run, explorer %GamePath%
-        ; MsgBox, 0, ButtonMainGuiExtra1_Pressed triggered, Click OK, 1
-        Return  
+    If Not WinExist("Valheim")
+      {
+            Run, explorer %GamePath%
+            ; MsgBox, 0, ButtonMainGuiExtra1_Pressed triggered, Click OK, 1
+            Return  
+      }
+    Else
+      {
+        MsgBox, 0, Valheim Window Already Exists?, It appears that there's already a window with the title 'Valheim' so the tool will not attempt to run it at this time.
+        Return
+      }
   }
   Else
-  {
-    MsgBox, 0, Valheim Window Already Exists?, It appears that there's already a window with the title 'Valheim' so the tool will not attempt to run it at this time.
-    Return
-  }
+    {
+      MsgBox, 0, GamePath Required, You must populate the [Game]Path entry in the KB.txt file under %A_ScriptDir%\`n`nSee the 'About' screen for more information on this.
+      Return
+    }
 }
+
 
 #Include Lib\MovemberAvatar.ahk
 
