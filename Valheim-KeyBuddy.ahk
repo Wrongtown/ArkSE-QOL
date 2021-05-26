@@ -110,7 +110,7 @@ Gui, About:New, ,About KeyBuddy
 Gui +0x400000  +MinimizeBox -SysMenu
 ; Gui -0xC00000  
 Gui, About:Margin, 1, 1
-Gui, Color, 0xFFD100
+Gui, Color, 0xFCFFE3
 
 Gui +LastFound  ; Make the GUI window the last found window for use below.
 

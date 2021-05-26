@@ -1,6 +1,6 @@
 ﻿Gui New, +0x400000, %KeyBuddy_Subtype% v%KeyBuddy_Version%  ; Create a new GUI
 Gui, Margin, 5, 10
-Gui, Color, 0x244560
+Gui, Color, 0xAFB9C1
 Gui +LastFound
 
 
