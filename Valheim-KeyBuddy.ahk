@@ -100,6 +100,8 @@ SetTimer, SplashOff, 800
 
 #Include Lib\ForceSingleInstance_check.ahk
 
+SetTimer, AFKSleepTimer, 1320000 ; 22 minutes 
+
 #Include Lib\GuiMainGeneric.ahk
 
 #Include Lib\MovemberSupport.ahk
@@ -357,6 +359,26 @@ ReminderNotification:
 ;f12::reload
 
 #Include Lib\GuiActionsGeneric.ahk
+
+AfkAutoSleep:
+    gui, submit, NoHide
+    If AutoSleep != 1
+    {
+      AutoSleep:= "1"
+      SetTimer, AFKSleepTimer, 1320000 ; 22 minutes 
+      ToolTip, AutoSleep active
+      Return
+    }
+    If AutoSleep = 1
+    {
+     AutoSleep:= "0" 
+    ToolTip, AutoSleep inactive
+    Sleep 2000
+    ToolTip, 
+    Return
+    }
+
+
 
 ButtonRemoveKeyBuddy:
 MsgBox, 0, Manual deletion required, To remove this script entirely you just need to delete the files from %A_ScriptDir%`n`nI'll attempt to open that directory now, and then shut myself down after 5 seconds.`nThe rest is up to you.
