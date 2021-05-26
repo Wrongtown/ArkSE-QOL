@@ -5,8 +5,8 @@ FileInstall, resources/robo-viking.ico, robotic-48.ico, 1
 
 ; Sleep, 500
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.19 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.19) is available. Also found at
+KeyBuddy_Version = 0.20 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.20) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -17,10 +17,12 @@ Avatar_TT := ""
 MainGuiExtra:= "True"
 ButtonMainGuiExtra1_Pressed_Label:= "Run Valheim"
 ButtonMainGuiExtra1_Pressed_TT:= "Only if it's not already existing"
+AfkAutoSleep_TT:= "Toggles automatic sleep, will press E every 22 minutes."
 NeverTrue:= "False"
+AutoSleep:= "False"
 
   ; Start CompilerDirectives for this version
-version := "0.19", company := "Wrongtown"    ; Keep these lines together
+version := "0.20", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
@@ -98,6 +100,8 @@ SetTimer, SplashOff, 800
 
 #Include Lib\ForceSingleInstance_check.ahk
 
+SetTimer, AFKSleepTimer, 1320000 ; 22 minutes 
+
 #Include Lib\GuiMainGeneric.ahk
 
 #Include Lib\MovemberSupport.ahk
@@ -110,7 +114,7 @@ Gui, About:New, ,About KeyBuddy
 Gui +0x400000  +MinimizeBox -SysMenu
 ; Gui -0xC00000  
 Gui, About:Margin, 1, 1
-Gui, Color, 0xFFD100
+Gui, Color, 0xFCFFE3
 
 Gui +LastFound  ; Make the GUI window the last found window for use below.
 
@@ -179,6 +183,29 @@ Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherit
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 
+Gui, Add, Text, xs+20 r1 , Automatically sleep while away from your keyboard
+
+Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
+Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
+Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Text, xs+20 , 
+(
+PLEASE NOTE: Though this command can only be activated/deactivated with Valheim active, it is window agnostic 
+after that and it will press "e" every 22 minutes until you disable it (or close KeyBuddy).
+
+Step 1. Stand on your bed and use the mouse to aim directly down at it.
+Step 2. Press Alt+z to engage AutoSleep mode (think Z = snoring).
+
+KeyBuddi will set a timer for 22 minutes and press "e" every 22 minutes after that until you press this hotkey again.
+`n
+)
+
+Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
+Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
+Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
+Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
+
 Gui, Add, Text, xs+20 r1 , If you want to shut down the app once you're in the server
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
@@ -193,7 +220,7 @@ Press Ctrl+F10 to shut down the script from the Valheim window, avoiding the nee
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-320 w1,
+Gui, Add, Text, section xp-0 yp-460 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -245,7 +272,7 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+400 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Button, xp+336 yp+540 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
 Gui, Add, Text, xp-336 yp+20 w1, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
@@ -272,6 +299,22 @@ F10:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under [Server]
 F11:: Gosub, InputIpPort2 ; Input the string retrieved from KB.txt under [Server]IP2
 +F10:: Gosub, Log ; input the string retrieved from KB.txt under [Log]Val
 +F11:: Gosub, Log2 ; input the string retrieved from KB.txt under [Log]Val2
+!z:: Gosub, AfkAutoSleep ; Activate/Deactivate AFK Sleep function
+
+AFKSleepTimer:
+{
+if AutoSleep = 1
+  {
+  ToolTip, KeyBuddy is Pressing E to put you to bed...
+  send e
+  Return
+  }
+    Else
+    {
+      ; ToolTip, AutoSleep Not Active
+    }
+Return
+}
 
 Reload_Pressed:
 Reload
@@ -332,6 +375,26 @@ ReminderNotification:
 ;f12::reload
 
 #Include Lib\GuiActionsGeneric.ahk
+
+AfkAutoSleep:
+    gui, submit, NoHide
+    If AutoSleep != 1
+    {
+      AutoSleep:= "1"
+      SetTimer, AFKSleepTimer, 1320000 ; 22 minutes 
+      ToolTip, AutoSleep active
+      Return
+    }
+    If AutoSleep = 1
+    {
+     AutoSleep:= "0" 
+    ToolTip, AutoSleep inactive
+    Sleep 2000
+    ToolTip, 
+    Return
+    }
+
+
 
 ButtonRemoveKeyBuddy:
 MsgBox, 0, Manual deletion required, To remove this script entirely you just need to delete the files from %A_ScriptDir%`n`nI'll attempt to open that directory now, and then shut myself down after 5 seconds.`nThe rest is up to you.
