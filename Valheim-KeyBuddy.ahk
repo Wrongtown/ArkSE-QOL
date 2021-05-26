@@ -179,6 +179,29 @@ Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherit
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
 Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
 
+Gui, Add, Text, xs+20 r1 , Automatically sleep while away from your keyboard
+
+Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
+Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
+Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
+
+Gui, Add, Text, xs+20 , 
+(
+PLEASE NOTE: Though this command can only be activated/deactivated with Valheim active, it is window agnostic 
+after that and it will press "e" every 22 minutes until you disable it (or close KeyBuddy).
+
+Step 1. Stand on your bed and use the mouse to aim directly down at it.
+Step 2. Press Alt+z to engage AutoSleep mode (think Z = snoring).
+
+KeyBuddi will set a timer for 22 minutes and press "e" every 22 minutes after that until you press this hotkey again.
+`n
+)
+
+Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
+Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
+Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
+Gui, font,, Helvetica ; Preferred font (size, weight & quality are all inherited).
+
 Gui, Add, Text, xs+20 r1 , If you want to shut down the app once you're in the server
 
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
@@ -193,7 +216,7 @@ Press Ctrl+F10 to shut down the script from the Valheim window, avoiding the nee
 
 
 Gui, Tab, Other information, , Exact
-Gui, Add, Text, section xp-0 yp-320 w1,
+Gui, Add, Text, section xp-0 yp-460 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
 Gui, Font,, Arial    ; Fallback font #2 (size 12, bold & quality are all inherited).
 Gui, Font,, Verdana  ; Fallback font #1(size 12, bold & quality are all inherited).
@@ -245,7 +268,7 @@ Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
-Gui, Add, Button, xp+336 yp+400 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
+Gui, Add, Button, xp+336 yp+540 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
 Gui, Add, Text, xp-336 yp+20 w1, ; Provide a bit of buffer beneath the Close button.
 
 Gui, Show
