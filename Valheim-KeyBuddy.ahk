@@ -299,6 +299,22 @@ F10:: Gosub, InputIpPort ; Input the string retrieved from KB.txt under [Server]
 F11:: Gosub, InputIpPort2 ; Input the string retrieved from KB.txt under [Server]IP2
 +F10:: Gosub, Log ; input the string retrieved from KB.txt under [Log]Val
 +F11:: Gosub, Log2 ; input the string retrieved from KB.txt under [Log]Val2
+!z:: Gosub, AfkAutoSleep ; Activate/Deactivate AFK Sleep function
+
+AFKSleepTimer:
+{
+if AutoSleep = 1
+  {
+  ToolTip, KeyBuddy is Pressing E to put you to bed...
+  send e
+  Return
+  }
+    Else
+    {
+      ; ToolTip, AutoSleep Not Active
+    }
+Return
+}
 
 Reload_Pressed:
 Reload
