@@ -17,7 +17,9 @@ Avatar_TT := ""
 MainGuiExtra:= "True"
 ButtonMainGuiExtra1_Pressed_Label:= "Run Valheim"
 ButtonMainGuiExtra1_Pressed_TT:= "Only if it's not already existing"
+AfkAutoSleep_TT:= "Toggles automatic sleep, will press E every 22 minutes."
 NeverTrue:= "False"
+AutoSleep:= "False"
 
   ; Start CompilerDirectives for this version
 version := "0.19", company := "Wrongtown"    ; Keep these lines together
