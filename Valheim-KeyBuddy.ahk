@@ -52,7 +52,7 @@ If GamePath is Not space
     }
     IfMsgBox, No
     {
-      MsgBox, 0, You're the boss!, No problem.`n`nThis message will close itself.,1
+      ; No action required.
     }
     }
 }
