@@ -377,7 +377,7 @@ ReminderNotification:
 #Include Lib\GuiActionsGeneric.ahk
 
 AfkAutoSleep:
-    gui, submit, NoHide
+    
     If AutoSleep != 1
     {
       AutoSleep:= "1"
