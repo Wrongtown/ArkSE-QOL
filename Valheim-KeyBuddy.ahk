@@ -5,8 +5,8 @@ FileInstall, resources/robo-viking.ico, robotic-48.ico, 1
 
 ; Sleep, 500
 KeyBuddy_Subtype = KeyBuddy - Valheim 
-KeyBuddy_Version = 0.20 ;Used for display in application
-; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.20) is available. Also found at
+KeyBuddy_Version = 0.21 ;Used for display in application
+; KeyBuddyThisVersionNote=A new version of KeyBuddy (0.21) is available. Also found at
 LogAppTitle = %KeyBuddy_Subtype%
 LogAppVer = %KeyBuddy_Version%
 App1Name:= "Valheim"
@@ -22,7 +22,7 @@ NeverTrue:= "False"
 AutoSleep:= "False"
 
   ; Start CompilerDirectives for this version
-version := "0.20", company := "Wrongtown"    ; Keep these lines together
+version := "0.21", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-Let KeyBuddy_Version=%A_PriorLine~U)^(.+"){1}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-Let cy=%A_PriorLine~U)^(.+"){3}(.+)".*$~$2% ; Keep these lines together
 ;@Ahk2Exe-ExeName %A_ScriptDir%\KeyBuddy-Valheim\KeyBuddy - Valheim
@@ -52,7 +52,7 @@ If GamePath is Not space
     }
     IfMsgBox, No
     {
-      MsgBox, 0, You're the boss!, No problem.`n`nThis message will close itself.,1
+      ; No action required.
     }
     }
 }
@@ -196,8 +196,9 @@ after that and it will press "e" every 22 minutes until you disable it (or close
 
 Step 1. Stand on your bed and use the mouse to aim directly down at it.
 Step 2. Press Alt+z to engage AutoSleep mode (think Z = snoring).
+Step 3. (optional) Press E to lay down to sleep instead of waiting for the first timer loop.
 
-KeyBuddi will set a timer for 22 minutes and press "e" every 22 minutes after that until you press this hotkey again.
+KeyBuddi will set a timer for 22 minutes, pressing "e" every 22 minutes after that until you press this hotkey again.
 `n
 )
 
@@ -253,13 +254,13 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 
 Gui, Add, Link, section xs, 
 (
-If you add a [Game]Path string to KB.txt (located in the same directory as this application) then this app will offer to run it 
-for you if it isn't already running. This path should be the same as you see in a Desktop Shortcut created by Steam, for 
-example: steam://rungameid/892970
+If you add a [Game]Path string to KB.txt (located in the same directory as this application) then this app will offer to run 
+the game for you if it isn't already running. This path should be the same as you see in a Desktop Shortcut created by 
+Steam, for example: steam://rungameid/892970
 
 
-Ctrl+F5 will input the devcommands and debugmode commands, usually when I've opened the console to test something this 
-is the first step.
+Ctrl+F5 will input the devcommands and debugmode commands. Usually when I've opened the console to test something, 
+this is the first step.
 )
 
 Gui, Add, Text, xp+00 yp+160 w1, 
@@ -273,8 +274,7 @@ Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherite
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
 Gui, Add, Button, xp+336 yp+540 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
-Gui, Add, Text, xp-336 yp+20 w1, ; Provide a bit of buffer beneath the Close button.
-
+Gui, Add, Text, xp+360 yp+20 w1, ; Provide a bit of buffer beneath the Close button and right margin to the tabbed section.
 Gui, Show
 ; This section and the WM_MOUSEMOVE section below allow the user to click anywhere on this window and move it around.
 WinSet, Transparent , 235, About KeyBuddy, , , 
@@ -377,7 +377,7 @@ ReminderNotification:
 #Include Lib\GuiActionsGeneric.ahk
 
 AfkAutoSleep:
-    gui, submit, NoHide
+    
     If AutoSleep != 1
     {
       AutoSleep:= "1"
