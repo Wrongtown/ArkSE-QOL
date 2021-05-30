@@ -274,8 +274,7 @@ Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherite
 Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 ; Gui, Add, Text, section xp-0 yp+40 w1, ; Start a new section down the screen to anchor the Close button on.
 Gui, Add, Button, xp+336 yp+540 w40 h20 Default gButtonHideAbout_Pressed, Close ; Static position set to center ; TODO - Dynamic centering?
-Gui, Add, Text, xp-336 yp+20 w1, ; Provide a bit of buffer beneath the Close button.
-
+Gui, Add, Text, xp+360 yp+20 w1, ; Provide a bit of buffer beneath the Close button and right margin to the tabbed section.
 Gui, Show
 ; This section and the WM_MOUSEMOVE section below allow the user to click anywhere on this window and move it around.
 WinSet, Transparent , 235, About KeyBuddy, , , 
