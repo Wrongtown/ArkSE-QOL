@@ -196,8 +196,9 @@ after that and it will press "e" every 22 minutes until you disable it (or close
 
 Step 1. Stand on your bed and use the mouse to aim directly down at it.
 Step 2. Press Alt+z to engage AutoSleep mode (think Z = snoring).
+Step 3. (optional) Press E to lay down to sleep instead of waiting for the first timer loop.
 
-KeyBuddi will set a timer for 22 minutes and press "e" every 22 minutes after that until you press this hotkey again.
+KeyBuddi will set a timer for 22 minutes, pressing "e" every 22 minutes after that until you press this hotkey again.
 `n
 )
 
