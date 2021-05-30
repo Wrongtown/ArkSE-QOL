@@ -259,8 +259,8 @@ for you if it isn't already running. This path should be the same as you see in 
 example: steam://rungameid/892970
 
 
-Ctrl+F5 will input the devcommands and debugmode commands, usually when I've opened the console to test something this 
-is the first step.
+Ctrl+F5 will input the devcommands and debugmode commands. Usually when I've opened the console to test something, 
+this is the first step.
 )
 
 Gui, Add, Text, xp+00 yp+160 w1, 
