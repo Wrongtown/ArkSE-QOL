@@ -22,7 +22,7 @@ jobs:
         with:
           version: v1.1.33.01
           x64: false
-          x86: true
+          x86: false
           compression: none
           in: hello
           out: KeyBuddy-Valheim
