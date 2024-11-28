@@ -28,7 +28,7 @@ jobs:
           out: "KeyBuddy-Valheim"
           #out: build
           icon: "resources/robotic-48.ico"
-      - name: Do domething with builded scripts
+      - name: Do something with built scripts
         shell: pwsh
         run: |
           ls build
