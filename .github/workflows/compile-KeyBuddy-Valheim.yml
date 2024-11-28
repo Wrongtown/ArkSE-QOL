@@ -23,7 +23,7 @@ jobs:
           version: v1.1.37.02
           x64: false
           x86: true
-          compression: upx
+          compression: none
           in: ""
           out: KeyBuddy-Valheim
           icon: "resources/robotic-48.ico"
@@ -31,5 +31,4 @@ jobs:
         shell: pwsh
         run: |
           ls KeyBuddy-Valheim
-          ls ._ahk\installation\Compiler\
 
