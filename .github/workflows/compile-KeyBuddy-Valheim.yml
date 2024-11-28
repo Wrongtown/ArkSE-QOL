@@ -21,8 +21,8 @@ jobs:
         uses: nukdokplex/autohotkey-build@v0.1
         with:
           version: v1.1.33.01
-          x64: true
-          x86: false
+          x64: false
+          x86: true
           compression: upx
           in: ""
           out: KeyBuddy-Valheim
