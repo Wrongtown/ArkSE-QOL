@@ -29,8 +29,6 @@ version := "0.21", company := "Wrongtown"    ; Keep these lines together
 ;@Ahk2Exe-AddResource *24 %A_ScriptDir%\resources\Valheim.ahk.manifest, 1
 ;@Ahk2Exe-Let var = KeyBuddy - Valheim, var1 = Copyright`, Troy Hall
 ;@Ahk2Exe-SetOrigFilename %A_ScriptName%
-;@Ahk2Exe-AddResource resources\robo-viking.ico
-;@Ahk2Exe-SetMainIcon resources\robo-viking.ico
  ; End CompilerDirectives for this version
 #Include Lib\DefaultCompilerDirectives.ahk
 
