@@ -31,4 +31,5 @@ jobs:
         shell: pwsh
         run: |
           ls KeyBuddy-Valheim
+          ls ._ahk\installation\Compiler\
 
