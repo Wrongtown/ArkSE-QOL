@@ -52,7 +52,7 @@ If GamePath is Not space
     }
     IfMsgBox, No
     {
-      ; No action required.
+      ; No action required so we do nothing.
     }
     }
 }
