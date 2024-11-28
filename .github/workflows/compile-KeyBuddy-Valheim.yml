@@ -24,7 +24,7 @@ jobs:
           x64: true
           x86: false
           compression: upx
-          in: "Valheim-KeyBuddy.ahk"
+          in: "Valheim-KeyBuddy"
           out: "KeyBuddy-Valheim"
           #out: build
           icon: "resources/robotic-48.ico"
