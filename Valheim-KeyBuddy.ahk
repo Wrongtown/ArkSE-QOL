@@ -191,7 +191,8 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 Gui, Add, Text, xs+20 , 
 (
 PLEASE NOTE: Though this command can only be activated/deactivated with Valheim active, it is window agnostic 
-after that and it will press "e" every 22 minutes until you disable it (or close KeyBuddy).
+after that and it will press "e" every 22 minutes until you disable it (or close KeyBuddy). Take care not to 
+select another window which you wouldn't want to recieve an "e" keypress.
 
 Step 1. Stand on your bed and use the mouse to aim directly down at it.
 Step 2. Press Alt+z to engage AutoSleep mode (think Z = snoring).
