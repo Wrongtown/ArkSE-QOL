@@ -237,7 +237,7 @@ Gui, Add, Link, section xs,
 `nThis program was created using <a href="https://autohotkey.com/">AutoHotKey</a> which is free and <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">open-source `(GNU GPLv2`)</a>.
 Initial development by Troy Hall AKA Wrongtown based off a similar tool for Ark: Survival Evolved.
 Source code available at <a href="https://github.com/Wrongtown/ArkSE-QOL">https://github.com/Wrongtown/ArkSE-QOL</a>.
-Sound effects (where present) are simply utilizing existing media available on your Windows 10 PC.
+Sound effects (where present) are simply utilizing existing media available on your Windows PC.
 )
 
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
