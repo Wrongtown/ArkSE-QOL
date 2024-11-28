@@ -254,7 +254,7 @@ Gui, font,, Verdana ; Preferred font (size, weight & quality are all inherited).
 Gui, Add, Link, section xs, 
 (
 If you add a [Game]Path string to KB.txt (located in the same directory as this application) then this app will offer to run 
-the game for you if it isn't already running. This path should be the same as you see in a Desktop Shortcut created by 
+the game for you if it isn't already running. This path should be the same as you would see in a Desktop Shortcut created by 
 Steam, for example: steam://rungameid/892970
 
 
