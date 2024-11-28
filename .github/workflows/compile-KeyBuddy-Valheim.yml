@@ -1,0 +1,35 @@
+# This is a basic workflow to compile an AutoHotKey script based on # https://github.com/marketplace/actions/autohotkey-build
+
+name: Compile Claims-Assist-KeyBuddi.ahk AutoHotKey Spike (Triggered on push to MAIN or COMPILE PR)
+
+# Controls when the action will run. Workflow runs when code is pushed to main or when a PR is created 
+# on a branch containing "compile"
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ compile/* ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build with AHK v1.1.22.01
+        uses: nukdokplex/autohotkey-build@v0.1
+        with:
+          version: v1.1.22.01
+          x64: true
+          x86: false
+          compression: upx
+          in: "Valheim-KeyBuddy.ahk"
+          out: "KeyBuddy-Valheim"
+          #out: build
+          icon: "resources/robotic-48.ico"
+      - name: Do domething with builded scripts
+        shell: pwsh
+        run: |
+          ls build
+
