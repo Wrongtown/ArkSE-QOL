@@ -81,7 +81,6 @@ If NeverTrue = True
     }
 }
 
-
 #Include Lib\MovemberAvatar.ahk
 
 ; Only bother installing images if they're not available
@@ -219,7 +218,6 @@ Press Ctrl+F10 to shut down the script from the Valheim window, avoiding the nee
 `n
 )
 
-
 Gui, Tab, Other information, , Exact
 Gui, Add, Text, section xp-0 yp-460 w1,
 Gui, Font, s12 bold q5, MS Sans Serif ; Fallback font last attempt. before default to system default.
@@ -267,7 +265,6 @@ Gui, Add, Text, xp+00 yp+160 w1,
 
 Gui, Tab ; End tabbed GUI section
 
-
 ; Second Button to invoke gButtonHideAbout_Pressed, Closing the About window
 Gui, font, s8 norm q5, MS Sans Serif ; Return to size 8 no bold
 Gui, Font,, Arial    ; Fallback font #1 (size, weight & quality are all inherited).
@@ -289,7 +286,6 @@ WM_MOUSEMOVE( wparam, lparam, msg, hwnd )
 Return
 
 ; **** HotKeys - Customize below for your preferences ****
-
 
 #IfWinActive ahk_exe Valheim.exe
 ; #IfWinActive Untitled - Notepad ; Debug only
@@ -369,8 +365,6 @@ SplashOff() {
 }
 
 ReminderNotification:
-
-
 ;*** Dev/Debug ***
 ;f12::reload
 
@@ -393,8 +387,6 @@ AfkAutoSleep:
     ToolTip, 
     Return
     }
-
-
 
 ButtonRemoveKeyBuddy:
 MsgBox, 0, Manual deletion required, To remove this script entirely you just need to delete the files from %A_ScriptDir%`n`nI'll attempt to open that directory now, and then shut myself down after 5 seconds.`nThe rest is up to you.
