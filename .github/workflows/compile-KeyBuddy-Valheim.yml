@@ -24,7 +24,7 @@ jobs:
           x64: false
           x86: true
           compression: none
-          in: "hello-world"
+          in: "hello-world.ahk"
           out: KeyBuddy-Valheim
           icon: "resources/robotic-48.ico"
       - name: Do something with built scripts
