@@ -2,12 +2,12 @@
 
 name: Compile hello-world.ahk AutoHotKey Spike (Triggered on push to main)
 
-# Controls when the action will run. Workflow runs when code is pushed to main
+# Controls when the action will run. Workflow runs when code is pushed to main or spike/*
 on:
   push:
     branches: 
               - main
-              - spike
+              - 'spike/*'
   pull_request:
     branches: 
               - 'compile/*'
