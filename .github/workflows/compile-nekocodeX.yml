@@ -23,8 +23,8 @@ jobs:
           in: hello-world.ahk
 
 # https://github.com/marketplace/actions/gh-release
-- name: Create Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: hello-world.exe
+      - name: Create Release
+              uses: softprops/action-gh-release@v1
+              if: startsWith(github.ref, 'refs/tags/')
+              with:
+                files: hello-world.exe
