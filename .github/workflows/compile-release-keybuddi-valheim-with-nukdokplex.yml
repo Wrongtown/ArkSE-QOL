@@ -24,11 +24,6 @@ jobs:
         shell: pwsh
         run: |
             ls 
-            ls build
-      - name: Copy script to build directory
-        shell: pwsh
-        run: |
-            Copy-Item "Valheim-KeyBuddi.ahk" -Destination "build"
       - name: Build with AHK v1.1.33.01
         uses: nukdokplex/autohotkey-build@v0.1
         with:
