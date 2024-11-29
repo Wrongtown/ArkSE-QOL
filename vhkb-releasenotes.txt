@@ -1,0 +1,4 @@
+Valheim KeyBuddy release with no real functional change.
+- some minor copy changes 
+- committed missing manifest 
+- committed missing icon

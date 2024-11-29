@@ -1,17 +1,21 @@
 # This is a basic workflow to compile an AutoHotKey script based on # https://github.com/marketplace/actions/ahk2exe
+# NOTE: Tagging is important if you want a Release generated (e.g. git tag -a v0.24.04 -m "Valheim KeyBuddy v0.24")
+#       You must push the tags separately (e.g. git push origin v0.24.04)
+name: Compile Valheim-KeyBuddy.ahk AutoHotKey Spike (Triggered on push to main or spike/*)
 
-name: Compile hello-world.ahk AutoHotKey Spike (Triggered on push to main)
-
-# Controls when the action will run. Workflow runs when code is pushed to main
+# Controls when the action will run. Workflow runs when code is pushed to main or spike/*
 on:
   push:
     branches: 
               - main
-              - spike
+              - 'spike/**'
+    tags:
+              - "v*.*.*"
   pull_request:
     branches: 
-              - 'compile/*'
-              - 'spike/*'
+              - 'compile/**'
+              - 'spike/**'
+              - 'release/**'
 
 jobs:
   Example:
@@ -35,5 +39,13 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
         with:
-          files: KeyBuddy-Valheim/KeyBuddy-Valheim.exe
+          body: 
+            Turns out vhkb-releasenotes.txt was not the appropriate path for release notes.
+          body_path: 
+            vhkb-releasenotes.txt
+          files: 
+            KeyBuddy-Valheim/KeyBuddy - Valheim.exe
