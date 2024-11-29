@@ -40,4 +40,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         with:
-          files: KeyBuddy-Valheim/KeyBuddy-Valheim.exe
+          files: 
+            KeyBuddy-Valheim/KeyBuddy-Valheim.exe
