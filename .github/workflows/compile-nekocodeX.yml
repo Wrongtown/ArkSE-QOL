@@ -42,7 +42,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         with:
-          body: Turns out ${{ github.workspace }}vhkb-releasenotes.txt was not the appropriate path for release notes.
-          body_path: ${{ github.workspace }}vhkb-releasenotes.txt
+          body: 
+            Turns out ${{ github.workspace }}vhkb-releasenotes.txt was not the appropriate path for release notes.
+          body_path: 
+            ${{ github.workspace }}vhkb-releasenotes.txt
           files: 
             KeyBuddy-Valheim/KeyBuddy - Valheim.exe
