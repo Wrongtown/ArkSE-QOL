@@ -20,7 +20,7 @@ jobs:
       - name: Ahk2Exe
         uses: nekocodeX/GitHub-Action-Ahk2Exe@main
         with:
-          in: hello-world.ahk
+          in: Valheim-KeyBuddy.ahk
 
       - name: Check for compiled binary
         shell: pwsh
