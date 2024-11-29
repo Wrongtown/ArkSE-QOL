@@ -20,7 +20,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
+      - name: Copy script to build directory
+        shell: pwsh
+        run: |
+            Copy-Item "Valheim-KeyBuddi.ahk" -Destination "build"
       - name: Build with AHK v1.1.33.01
         uses: nukdokplex/autohotkey-build@v0.1
         with:
@@ -34,5 +37,5 @@ jobs:
         run: |
             ls 
             ls KeyBuddy-Valheim
-            ls ..\
+            ls build
 
