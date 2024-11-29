@@ -28,7 +28,7 @@ jobs:
           x64: true
           x86: false
           compression: none
-          in: Valheim-KeyBuddy.ahk
+          in: ""
       - name: Check for compiled binary and .ahk
         shell: pwsh
         run: |
