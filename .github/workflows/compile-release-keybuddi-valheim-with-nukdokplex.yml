@@ -20,6 +20,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Check for compiled .ahk
+        shell: pwsh
+        run: |
+            ls 
+            ls build
       - name: Copy script to build directory
         shell: pwsh
         run: |
