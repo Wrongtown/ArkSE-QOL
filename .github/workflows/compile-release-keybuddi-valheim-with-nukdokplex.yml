@@ -1,7 +1,7 @@
 # This is a basic workflow to compile an AutoHotKey script based on # https://github.com/marketplace/actions/ahk2exe
 # NOTE: Tagging is important if you want a Release generated (e.g. git tag -a v0.24.04 -m "Valheim KeyBuddy v0.24")
 #       You must push the tags separately (e.g. git push origin v0.24.04) and only then will the release be generated.
-name: Compile Valheim-KeyBuddy.ahk and generate a release if a tag is pushed (Triggered on push to main or spike/*)
+name: nukdokplex - Compile Valheim-KeyBuddy.ahk and generate a release if a tag is pushed (Triggered on push to main or spike/*)
 
 # Controls when the action will run. Workflow runs when code is pushed to main or spike/*
 on:
