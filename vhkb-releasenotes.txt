@@ -1,4 +1,2 @@
-Valheim KeyBuddy release with no real functional change.
-- some minor copy changes 
-- committed missing manifest 
-- committed missing icon
+Valheim KeyBuddy release with ZERO real functional change.
+- Number go up, to observe GitHub Actions behaviour
