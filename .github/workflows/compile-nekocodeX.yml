@@ -11,11 +11,6 @@ on:
               - 'spike/**'
     tags:
               - "v*.*.*"
-  pull_request:
-    branches: 
-              - 'compile/**'
-              - 'spike/**'
-              - 'release/**'
 
 jobs:
   Example:
