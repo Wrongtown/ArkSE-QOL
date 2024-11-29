@@ -1,0 +1,23 @@
+# This is a basic workflow to compile an AutoHotKey script based on # https://github.com/marketplace/actions/ahk2exe
+
+name: Compile Claims-Assist-KeyBuddi.ahk AutoHotKey Spike (Triggered on push to main)
+
+# Controls when the action will run. Workflow runs when code is pushed to main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ compile/* ]
+
+jobs:
+  Example:
+    name: Example
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Ahk2Exe
+        uses: nekocodeX/GitHub-Action-Ahk2Exe@main
+        with:
+          in: hello-world.ahk
