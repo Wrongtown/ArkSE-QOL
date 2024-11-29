@@ -22,6 +22,11 @@ jobs:
         with:
           in: hello-world.ahk
 
+      - name: Check for compiled binary
+        shell: pwsh
+        run: |
+          ls
+
 # https://github.com/marketplace/actions/gh-release
       - name: Create Release
         uses: softprops/action-gh-release@v1
