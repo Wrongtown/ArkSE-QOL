@@ -9,7 +9,7 @@ on:
               - main
               - 'spike/**'
     tags:
-              - "Valheim KeyBuddy v*.*.*"
+              - "v*.*.*"
   pull_request:
     branches: 
               - 'compile/**'
