@@ -42,5 +42,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         with:
+          body: 
+            Minor tweaks, mostly in service of investigating compiling via GitHub Actions.
           files: 
             KeyBuddy-Valheim/KeyBuddy - Valheim.exe
