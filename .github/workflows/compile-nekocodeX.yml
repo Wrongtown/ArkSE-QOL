@@ -8,6 +8,8 @@ on:
     branches: 
               - main
               - 'spike/**'
+    tags:
+              - "v*.*.*"
   pull_request:
     branches: 
               - 'compile/**'
