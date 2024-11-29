@@ -7,11 +7,12 @@ on:
   push:
     branches: 
               - main
-              - 'spike/*'
+              - 'spike/**'
   pull_request:
     branches: 
-              - 'compile/*'
-              - 'spike/*'
+              - 'compile/**'
+              - 'spike/**'
+              - 'release/**'
 
 jobs:
   Example:
