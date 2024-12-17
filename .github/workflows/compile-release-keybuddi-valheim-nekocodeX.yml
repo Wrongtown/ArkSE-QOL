@@ -5,6 +5,7 @@ name: Compile Valheim-KeyBuddy.ahk and generate a release if a tag is pushed (Tr
 
 # Controls when the action will run. Workflow runs when code is pushed to main or spike/*
 on:
+  workflow_dispatch:
   push:
     branches: 
               - main
